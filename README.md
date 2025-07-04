@@ -1,5 +1,8 @@
 # Team-Do_Bhai_Dono_Tabahi-call2code
 
+Challenge: Build a platform where users input stock tickers to view real-time insights, combining financial APIs, historical data, and sentiment analysis to visualize market trends and opportunities![image](https://github.com/user-attachments/assets/41bf2f62-5dba-4988-bb10-9de851b537d5)
+
+
 ![WhatsApp Image 2025-07-05 at 03 36 10_3c1274f0](https://github.com/user-attachments/assets/3cd1bafa-13e5-49d8-b9a1-46b9e4e8aa25)
 ![WhatsApp Image 2025-07-05 at 03 36 34_068986c2](https://github.com/user-attachments/assets/dc342352-318a-459c-8b0e-90033fad9c5d)
 ![WhatsApp Image 2025-07-05 at 03 37 02_907b4bbf](https://github.com/user-attachments/assets/4ec27e03-1495-4744-bb99-4d8c25cd2b68)
