@@ -4,10 +4,15 @@ Challenge: Build a platform where users input stock tickers to view real-time in
 
 Introduction:
 StonksGPT is designed to provide users with real-time stock market insights. By inputting stock tickers, users can access a combination of:
+
 Historical analysis
+
 Market trends and overview
+
 Current data
+
 Technical analysis
+
 Visual representation
 
 enabling swift decision-making
