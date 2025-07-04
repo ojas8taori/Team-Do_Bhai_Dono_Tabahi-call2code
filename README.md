@@ -53,3 +53,4 @@ Finnhub API : Integrating the Finnhub API will ensure up-to-date news, comprehen
 ![WhatsApp Image 2025-07-05 at 03 38 44_68f51f63](https://github.com/user-attachments/assets/5d91bca7-dfcb-4950-b7ec-0253335f5e4c)
 ![WhatsApp Image 2025-07-05 at 03 39 13_f4cb5af5](https://github.com/user-attachments/assets/05420acf-fbda-4e04-a80c-930d660d02f0)
 ![WhatsApp Image 2025-07-05 at 03 39 39_6273b54b](https://github.com/user-attachments/assets/d8fbeab7-b004-4bc5-b86d-034b666b0c6e)
+<img width="956" alt="image" src="https://github.com/user-attachments/assets/13a50d6a-1281-44e8-878d-bdbb2b5f779c" />
