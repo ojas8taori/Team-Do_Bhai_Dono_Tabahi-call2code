@@ -448,27 +448,24 @@ def render_stock_comparison(data_fetcher):
     
     col1, col2, col3 = st.columns([2, 2, 1])
     
+    # Get all Indian stocks from the data fetcher
     all_stocks = list(data_fetcher.indian_symbols.keys())
-    popular_stocks = [
-        'RELIANCE.NS', 'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 
-        'HINDUNILVR.NS', 'ITC.NS', 'KOTAKBANK.NS', 'LT.NS'
-    ]
     
     with col1:
         stock1 = st.selectbox(
-            "Select First Stock:",
-            options=popular_stocks,
+            "User 1 Stock:",
+            options=all_stocks,
             format_func=lambda x: f"{x.replace('.NS', '')} - {data_fetcher.indian_symbols.get(x, 'Unknown')}",
-            help="Choose the first stock to compare",
+            help="Choose any stock from entire Indian market for User 1",
             key="compare_stock1"
         )
     
     with col2:
         stock2 = st.selectbox(
-            "Select Second Stock:",
-            options=popular_stocks,
+            "User 2 Stock:",
+            options=all_stocks,
             format_func=lambda x: f"{x.replace('.NS', '')} - {data_fetcher.indian_symbols.get(x, 'Unknown')}",
-            help="Choose the second stock to compare",
+            help="Choose any stock from entire Indian market for User 2",
             key="compare_stock2"
         )
     

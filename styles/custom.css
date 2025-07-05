@@ -75,9 +75,9 @@
   --bg-sidebar: #262730;
   
   /* Dark Text Colors */
-  --text-primary: #fafafa;
-  --text-secondary: #c4c4c4;
-  --text-muted: #8a8a8a;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --text-muted: #ffffff;
   --text-inverse: #121212;
   
   /* Dark Border Colors */
@@ -182,6 +182,89 @@
   background-color: var(--bg-secondary) !important;
   color: var(--text-primary) !important;
   border: 1px solid var(--border-color) !important;
+}
+
+/* ==========================================
+   COMPREHENSIVE TEXT COLOR OVERRIDES
+   Ensures ALL text is correct color in both modes
+   ========================================== */
+
+/* Force all text elements to use proper colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+p, div, span, label, text {
+  color: var(--text-primary) !important;
+}
+
+/* Streamlit specific text elements */
+.stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
+  color: var(--text-primary) !important;
+}
+
+.stMarkdown p, .stMarkdown div, .stMarkdown span {
+  color: var(--text-primary) !important;
+}
+
+.stText {
+  color: var(--text-primary) !important;
+}
+
+/* Metric elements */
+.stMetric [data-testid="metric-label"] {
+  color: var(--text-secondary) !important;
+}
+
+.stMetric [data-testid="metric-value"] {
+  color: var(--text-primary) !important;
+}
+
+.stMetric [data-testid="metric-delta"] {
+  color: var(--text-primary) !important;
+}
+
+/* Form elements */
+.stSelectbox label, .stSelectbox div {
+  color: var(--text-primary) !important;
+}
+
+.stTextInput label, .stTextInput div {
+  color: var(--text-primary) !important;
+}
+
+.stCheckbox label, .stRadio label {
+  color: var(--text-primary) !important;
+}
+
+/* Button text */
+.stButton button {
+  color: var(--text-primary) !important;
+}
+
+/* Sidebar elements */
+.stSidebar * {
+  color: var(--text-primary) !important;
+}
+
+/* Custom HTML elements */
+div[style*="color"] {
+  color: var(--text-primary) !important;
+}
+
+/* Plotly chart text */
+.plotly .gtitle {
+  color: var(--text-primary) !important;
+}
+
+/* Override any hardcoded colors */
+[style*="color: #"] {
+  color: var(--text-primary) !important;
+}
+
+/* News and content text */
+.news-content, .news-content * {
+  color: var(--text-primary) !important;
 }
 
 /* ==========================================
