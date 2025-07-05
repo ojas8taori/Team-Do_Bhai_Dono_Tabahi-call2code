@@ -128,7 +128,7 @@ Prerequisites:
   Modern web browser (Chrome/Firefox/Safari/Edge)
   Internet connection for API data
 Optional API Keys:
-  Finnhub API key is required
+  Finnhub API key is required 
   Yahoo Finance works without API key
 Installation & Setup:
   1. Install Dependencies:
