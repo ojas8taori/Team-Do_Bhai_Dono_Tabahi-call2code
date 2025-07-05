@@ -30,34 +30,155 @@ def load_css():
     # Apply dark mode if enabled
     if st.session_state.get('dark_mode', False):
         css_content += """
-        /* Dark theme override */
+        /* Enhanced Dark theme override with better visibility */
+        html[data-theme="dark"] {
+            filter: none !important;
+        }
+        
         .stApp {
-            background-color: #121212;
-            color: #ffffff;
+            background: linear-gradient(135deg, #0f1419, #1a1f2e) !important;
+            color: #e8e9f3 !important;
         }
+        
         .stSidebar {
-            background-color: #1a1a1a;
+            background: linear-gradient(180deg, #1e2139, #2a2d4a) !important;
+            border-right: 2px solid #3d4465 !important;
         }
+        
         .stSidebar .css-1d391kg {
-            background-color: #1a1a1a;
+            background: transparent !important;
         }
-        .stSelectbox > div > div {
-            background-color: #2d2d2d;
-            border-color: #404040;
-            color: #ffffff;
+        
+        /* Enhanced text visibility */
+        .stMarkdown, .stMarkdown p, .stMarkdown div, .stText, .stCaption {
+            color: #e8e9f3 !important;
         }
-        .stTextInput > div > div > input {
-            background-color: #2d2d2d;
-            border-color: #404040;
-            color: #ffffff;
+        
+        .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4 {
+            color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
+        
+        /* Form elements with gradient backgrounds */
+        .stSelectbox > div > div, .stTextInput > div > div > input {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border: 1px solid #4a5080 !important;
+            color: #ffffff !important;
+            border-radius: 8px !important;
+        }
+        
+        .stSelectbox > div > div:hover, .stTextInput > div > div > input:hover {
+            border-color: #FF8A65 !important;
+            box-shadow: 0 0 10px rgba(255, 138, 101, 0.3) !important;
+        }
+        
+        /* Colorful gradient buttons */
         .stButton > button {
-            background-color: #2d2d2d;
-            border-color: #404040;
-            color: #ffffff;
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            border: none !important;
+            color: #ffffff !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
         }
+        
+        .stButton > button:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+        }
+        
+        /* Enhanced metric cards with gradients */
+        .stMetric {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border: 1px solid #4a5080 !important;
+            border-radius: 12px !important;
+            padding: 1rem !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        }
+        
+        .stMetric:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* Enhanced sidebar elements */
+        .stSidebar .stMarkdown, .stSidebar .stSelectbox label {
+            color: #e8e9f3 !important;
+        }
+        
+        /* Colorful header with Indian flag inspired gradients */
         .main-header {
-            background: linear-gradient(135deg, #FF8A65, #FFB74D);
+            background: linear-gradient(135deg, #FF8A65, #FFB74D, #4CAF50) !important;
+            box-shadow: 0 8px 32px rgba(255, 138, 101, 0.3) !important;
+        }
+        
+        /* Enhanced chart containers */
+        .stPlotlyChart {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border-radius: 12px !important;
+            padding: 1rem !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+        }
+        
+        /* Expander styling */
+        .stExpander {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border: 1px solid #4a5080 !important;
+            border-radius: 10px !important;
+        }
+        
+        .stExpander .streamlit-expanderHeader {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Tabs styling */
+        .stTabs [data-baseweb="tab-list"] {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border-radius: 8px !important;
+            padding: 0.5rem !important;
+        }
+        
+        .stTabs [data-baseweb="tab"] {
+            color: #e8e9f3 !important;
+            border-radius: 6px !important;
+            margin: 0 0.25rem !important;
+        }
+        
+        .stTabs [aria-selected="true"] {
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            color: #ffffff !important;
+        }
+        
+        /* Alert boxes */
+        .stAlert {
+            background: linear-gradient(135deg, #2a2d4a, #363b5c) !important;
+            border-left: 4px solid #FF8A65 !important;
+            color: #e8e9f3 !important;
+            border-radius: 8px !important;
+        }
+        
+        /* Success/Error specific colors */
+        .stSuccess {
+            border-left-color: #4CAF50 !important;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05)) !important;
+        }
+        
+        .stError {
+            border-left-color: #F44336 !important;
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(244, 67, 54, 0.05)) !important;
+        }
+        
+        .stWarning {
+            border-left-color: #FF9800 !important;
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05)) !important;
+        }
+        
+        .stInfo {
+            border-left-color: #2196F3 !important;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(33, 150, 243, 0.05)) !important;
         }
         """
     

@@ -5,7 +5,7 @@
 
 /* CSS Variables for Dynamic Theming */
 :root {
-  /* Light Theme Colors - Indian Market Inspired */
+  /* Enhanced Light Theme Colors - More Vibrant Indian Market Inspired */
   --primary-color: #FF6B35;          /* Saffron - inspired by Indian flag */
   --secondary-color: #F7931E;        /* Deep Orange */
   --accent-color: #138808;           /* Green - inspired by Indian flag */
@@ -14,32 +14,41 @@
   --warning-color: #FFB74D;          /* Caution yellow */
   --info-color: #2196F3;             /* Information blue */
   
+  /* Enhanced Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #FF6B35, #F7931E);
+  --gradient-secondary: linear-gradient(135deg, #667eea, #764ba2);
+  --gradient-success: linear-gradient(135deg, #00C851, #4CAF50);
+  --gradient-indian: linear-gradient(135deg, #FF6B35, #FFB74D, #4CAF50);
+  
   /* BSE/NSE Theme Colors */
   --bse-color: #0066CC;              /* BSE Blue */
   --nse-color: #2E7D32;              /* NSE Green */
   
-  /* Background Colors */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F8F9FA;
-  --bg-tertiary: #E9ECEF;
-  --bg-card: #FFFFFF;
-  --bg-sidebar: #F8F9FA;
+  /* Enhanced Background Colors with subtle gradients */
+  --bg-primary: linear-gradient(135deg, #ffffff, #f8f9fa);
+  --bg-secondary: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  --bg-tertiary: linear-gradient(135deg, #e9ecef, #dee2e6);
+  --bg-card: linear-gradient(135deg, #ffffff, #fafbfc);
+  --bg-sidebar: linear-gradient(180deg, #f8f9fa, #ffffff);
   
-  /* Text Colors */
-  --text-primary: #212529;
-  --text-secondary: #6C757D;
-  --text-muted: #ADB5BD;
+  /* Enhanced Text Colors for better contrast */
+  --text-primary: #2c3e50;           /* Darker blue for better readability */
+  --text-secondary: #5d6d7e;         /* Blue-gray for secondary text */
+  --text-muted: #85929e;             /* Muted blue-gray */
   --text-inverse: #FFFFFF;
+  --text-accent: #6c5ce7;            /* Purple accent for links */
   
   /* Border Colors */
   --border-color: #DEE2E6;
   --border-light: #E9ECEF;
   --border-dark: #ADB5BD;
+  --border-accent: #FF6B35;
   
-  /* Shadow Effects */
-  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  /* Enhanced Shadow Effects */
+  --shadow-sm: 0 2px 8px rgba(255, 107, 53, 0.1);
+  --shadow-md: 0 4px 16px rgba(255, 107, 53, 0.15);
+  --shadow-lg: 0 8px 32px rgba(255, 107, 53, 0.2);
+  --shadow-colored: 0 4px 20px rgba(102, 126, 234, 0.3);
   
   /* Market Status Colors */
   --market-open: #28A745;
@@ -86,11 +95,12 @@
    GLOBAL STYLES
    ========================================== */
 
-/* Main App Container */
+/* Main App Container with enhanced gradients */
 .stApp {
-  background-color: var(--bg-primary);
+  background: var(--bg-primary);
   color: var(--text-primary);
   transition: all var(--transition-normal);
+  min-height: 100vh;
 }
 
 /* Smooth transitions for theme switching */
@@ -173,21 +183,39 @@
   color: var(--text-primary) !important;
   border: 1px solid var(--border-color) !important;
 }
-}
 
 /* ==========================================
    HEADER AND NAVIGATION
    ========================================== */
 
-/* Main Header Styling */
+/* Enhanced Main Header Styling with Indian flag colors */
 .main-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--gradient-indian);
   color: var(--text-inverse);
-  padding: 2rem;
-  border-radius: 15px;
+  padding: 2.5rem;
+  border-radius: 20px;
   text-align: center;
   margin-bottom: 2rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  50% { transform: translateX(0%) translateY(0%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .main-header h1 {
@@ -203,11 +231,47 @@
   opacity: 0.9;
 }
 
-/* Navigation Menu Customization */
+/* Enhanced Navigation Menu Customization */
 .stSelectbox > div > div {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.stSelectbox > div > div:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.2);
+  transform: translateY(-1px);
+}
+
+.stSelectbox > div > div:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+}
+
+/* Enhanced Text Input Styling */
+.stTextInput > div > div > input {
+  background: var(--bg-card) !important;
+  border: 2px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 0.75rem 1rem !important;
+  color: var(--text-primary) !important;
+  transition: all var(--transition-normal) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.stTextInput > div > div > input:hover {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 15px rgba(255, 107, 53, 0.2) !important;
+}
+
+.stTextInput > div > div > input:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.3) !important;
+  outline: none !important;
 }
 
 /* ==========================================
@@ -267,19 +331,57 @@
   transform: translateY(-2px);
 }
 
-/* Metric Cards */
+/* Enhanced Metric Cards with vibrant styling */
 .metric-card {
-  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  padding: 1.2rem;
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  border-radius: 15px;
+  padding: 1.5rem;
   text-align: center;
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-secondary);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
 }
 
 .metric-card:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: var(--shadow-colored);
+  border-color: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced Streamlit metrics */
+.stMetric {
+  background: var(--bg-card) !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: 15px !important;
+  padding: 1.2rem !important;
+  transition: all var(--transition-normal) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.stMetric:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: var(--shadow-colored) !important;
+  border-color: var(--primary-color) !important;
 }
 
 /* ==========================================
@@ -447,22 +549,44 @@
    BUTTONS AND INTERACTIVE ELEMENTS
    ========================================== */
 
-/* Primary Button Styling */
+/* Enhanced Primary Button Styling with vibrant gradients */
 .stButton > button {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--gradient-secondary);
   color: var(--text-inverse);
   border: none;
-  border-radius: 8px;
-  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
+  font-size: 1rem;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-colored);
+  position: relative;
+  overflow: hidden;
+}
+
+.stButton > button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
 .stButton > button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #764ba2, #667eea, #f093fb);
+}
+
+.stButton > button:hover::before {
+  left: 100%;
+}
+
+.stButton > button:active {
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* Secondary Button Styling */

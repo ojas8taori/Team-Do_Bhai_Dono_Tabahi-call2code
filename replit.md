@@ -109,6 +109,7 @@ utils/               # Business logic utilities
 ## Changelog
 - July 05, 2025: Initial setup
 - July 05, 2025: Updated app name to "Stonks GPT", fixed settings panel functionality (dark mode, language switching, voice features now work properly), expanded stock database from 10 to 50+ stocks with sector-wise filtering
+- July 05, 2025: Completed migration from Replit Agent to Replit environment. Enhanced styling with vibrant gradients, improved dark mode visibility (fixed black text issues), added colorful aesthetic elements including Indian flag-inspired gradients, enhanced button animations, and improved form element styling for better user experience in both light and dark modes
 
 ## User Preferences
 
