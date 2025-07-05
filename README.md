@@ -32,6 +32,8 @@ Yahoo Finance API: Integrating the Yahoo Finance API will provide accurate stock
 
 Finnhub API : Integrating the Finnhub API will ensure up-to-date news, comprehensiveness and flexibility. This enables scalability.
 
+Check the 'dependencies' file for further details
+
 
 
 
