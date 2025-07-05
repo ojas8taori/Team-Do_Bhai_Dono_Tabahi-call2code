@@ -27,17 +27,16 @@ def load_css():
     with open("styles/custom.css") as f:
         css_content = f.read()
         
-    # Apply dark mode if enabled
+    # Apply dark mode if enabled with ABSOLUTE FORCE
     if st.session_state.get('dark_mode', False):
         css_content += """
-        /* Enhanced Dark theme override with better visibility */
-        html[data-theme="dark"] {
-            filter: none !important;
+        /* ABSOLUTE DARK MODE - FORCE WHITE TEXT EVERYWHERE */
+        html, body, .stApp, .stApp * {
+            color: white !important;
         }
         
         .stApp {
             background: linear-gradient(135deg, #0f1419, #1a1f2e) !important;
-            color: #e8e9f3 !important;
         }
         
         .stSidebar {
@@ -45,8 +44,16 @@ def load_css():
             border-right: 2px solid #3d4465 !important;
         }
         
-        .stSidebar .css-1d391kg {
-            background: transparent !important;
+        /* FORCE EVERY SINGLE ELEMENT TO BE WHITE */
+        * {
+            color: white !important;
+        }
+        
+        /* Override CSS variables for dark mode */
+        :root {
+            --text-primary: white !important;
+            --text-secondary: white !important;
+            --text-muted: white !important;
         }
         
         /* Enhanced text visibility with dark blue for better readability */
@@ -233,6 +240,41 @@ def load_css():
         """
     
     st.markdown(f"<style>{css_content}</style>", unsafe_allow_html=True)
+    
+    # Add JavaScript to force white text in dark mode
+    if st.session_state.get('dark_mode', False):
+        st.markdown("""
+        <script>
+        function forceWhiteText() {
+            // Set data-theme attribute
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.body.setAttribute('data-theme', 'dark');
+            
+            // Force all text to white
+            const style = document.createElement('style');
+            style.textContent = `
+                * { color: white !important; }
+                .stApp * { color: white !important; }
+                .stMetric * { color: white !important; }
+                [data-testid="metric-container"] * { color: white !important; }
+                [data-testid="metric-label"] { color: white !important; }
+                [data-testid="metric-value"] { color: white !important; }
+                [data-testid="metric-delta"] { color: white !important; }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Execute immediately
+        forceWhiteText();
+        
+        // Re-execute on DOM changes
+        const observer = new MutationObserver(forceWhiteText);
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        // Re-execute every 100ms to catch any new elements
+        setInterval(forceWhiteText, 100);
+        </script>
+        """, unsafe_allow_html=True)
 
 # Load translations
 @st.cache_data

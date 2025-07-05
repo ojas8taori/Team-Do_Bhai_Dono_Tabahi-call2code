@@ -268,6 +268,58 @@ div[style*="color"] {
 }
 
 /* ==========================================
+   FORCE WHITE TEXT IN DARK MODE - ULTRA SPECIFIC
+   ========================================== */
+
+[data-theme="dark"] * {
+  color: white !important;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] div,
+[data-theme="dark"] span,
+[data-theme="dark"] label,
+[data-theme="dark"] text {
+  color: white !important;
+}
+
+/* Streamlit metric boxes - force white text */
+[data-theme="dark"] .stMetric,
+[data-theme="dark"] .stMetric *,
+[data-theme="dark"] .stMetric div,
+[data-theme="dark"] .stMetric span,
+[data-theme="dark"] .stMetric p {
+  color: white !important;
+}
+
+[data-theme="dark"] .stMetric [data-testid="metric-label"],
+[data-theme="dark"] .stMetric [data-testid="metric-value"],
+[data-theme="dark"] .stMetric [data-testid="metric-delta"] {
+  color: white !important;
+}
+
+/* All Streamlit components */
+[data-theme="dark"] .stMarkdown *,
+[data-theme="dark"] .stSelectbox *,
+[data-theme="dark"] .stTextInput *,
+[data-theme="dark"] .stButton *,
+[data-theme="dark"] .stCheckbox *,
+[data-theme="dark"] .stRadio * {
+  color: white !important;
+}
+
+/* Override any inline styles */
+[data-theme="dark"] [style*="color"] {
+  color: white !important;
+}
+
+/* ==========================================
    HEADER AND NAVIGATION
    ========================================== */
 
