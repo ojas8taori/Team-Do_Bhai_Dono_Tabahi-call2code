@@ -1,0 +1,911 @@
+/* ==========================================
+   STONKS GPT - INDIAN STOCK MARKET PLATFORM
+   Custom CSS for Indian Market Theme with Dark Mode Support
+   ========================================== */
+
+/* CSS Variables for Dynamic Theming */
+:root {
+  /* Light Theme Colors - Indian Market Inspired */
+  --primary-color: #FF6B35;          /* Saffron - inspired by Indian flag */
+  --secondary-color: #F7931E;        /* Deep Orange */
+  --accent-color: #138808;           /* Green - inspired by Indian flag */
+  --success-color: #00C851;          /* Bull market green */
+  --danger-color: #FF4444;           /* Bear market red */
+  --warning-color: #FFB74D;          /* Caution yellow */
+  --info-color: #2196F3;             /* Information blue */
+  
+  /* BSE/NSE Theme Colors */
+  --bse-color: #0066CC;              /* BSE Blue */
+  --nse-color: #2E7D32;              /* NSE Green */
+  
+  /* Background Colors */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  --bg-tertiary: #E9ECEF;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #F8F9FA;
+  
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --text-muted: #ADB5BD;
+  --text-inverse: #FFFFFF;
+  
+  /* Border Colors */
+  --border-color: #DEE2E6;
+  --border-light: #E9ECEF;
+  --border-dark: #ADB5BD;
+  
+  /* Shadow Effects */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  
+  /* Market Status Colors */
+  --market-open: #28A745;
+  --market-closed: #DC3545;
+  --market-pre-open: #FFC107;
+  
+  /* Animation Timings */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary-color: #FF8A65;          /* Lighter saffron for dark mode */
+  --secondary-color: #FFB74D;        /* Lighter orange */
+  --accent-color: #4CAF50;           /* Lighter green */
+  
+  /* Dark Background Colors */
+  --bg-primary: #0e1117;
+  --bg-secondary: #262730;
+  --bg-tertiary: #2D2D2D;
+  --bg-card: #1a1a1a;
+  --bg-sidebar: #262730;
+  
+  /* Dark Text Colors */
+  --text-primary: #fafafa;
+  --text-secondary: #c4c4c4;
+  --text-muted: #8a8a8a;
+  --text-inverse: #121212;
+  
+  /* Dark Border Colors */
+  --border-color: #3d3d3d;
+  --border-light: #2a2a2a;
+  --border-dark: #555555;
+  
+  /* Dark Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================
+   GLOBAL STYLES
+   ========================================== */
+
+/* Main App Container */
+.stApp {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color var(--transition-normal), 
+              color var(--transition-normal), 
+              border-color var(--transition-normal);
+}
+
+/* Dark Mode Streamlit Component Overrides */
+[data-theme="dark"] .stApp {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stSidebar {
+  background-color: var(--bg-sidebar) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stSidebar .stMarkdown p {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stSidebar .stMarkdown h1,
+[data-theme="dark"] .stSidebar .stMarkdown h2,
+[data-theme="dark"] .stSidebar .stMarkdown h3,
+[data-theme="dark"] .stSidebar .stMarkdown h4 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stSelectbox label,
+[data-theme="dark"] .stCheckbox label,
+[data-theme="dark"] .stRadio label {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stMarkdown p,
+[data-theme="dark"] .stMarkdown div,
+[data-theme="dark"] .stText {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stButton button {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .stButton button:hover {
+  background-color: var(--bg-tertiary) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+
+[data-theme="dark"] .stMetric {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .stMetric .metric-label {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .stMetric .metric-value {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stExpander {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .stExpander .streamlit-expanderHeader {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .stAlert {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+}
+
+/* ==========================================
+   HEADER AND NAVIGATION
+   ========================================== */
+
+/* Main Header Styling */
+.main-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--text-inverse);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.main-header .tagline {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+/* Navigation Menu Customization */
+.stSelectbox > div > div {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+/* ==========================================
+   SIDEBAR STYLING
+   ========================================== */
+
+/* Sidebar Container */
+.css-1d391kg {
+  background-color: var(--bg-sidebar);
+  border-right: 2px solid var(--border-color);
+}
+
+/* Sidebar Content */
+.sidebar .sidebar-content {
+  padding: 1rem;
+}
+
+/* Market Status Indicator in Sidebar */
+.market-status {
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.market-status.open {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--market-open);
+  border: 1px solid var(--market-open);
+}
+
+.market-status.closed {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--market-closed);
+  border: 1px solid var(--market-closed);
+}
+
+/* ==========================================
+   CARDS AND CONTAINERS
+   ========================================== */
+
+/* Main Content Cards */
+.content-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.content-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Metric Cards */
+.metric-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 1.2rem;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.metric-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   MARKET-SPECIFIC STYLING
+   ========================================== */
+
+/* Bull Market Styling */
+.bullish {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(139, 195, 74, 0.1));
+  border-left: 4px solid var(--success-color);
+}
+
+.bullish .trend-indicator {
+  color: var(--success-color);
+}
+
+/* Bear Market Styling */
+.bearish {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.1), rgba(229, 57, 53, 0.1));
+  border-left: 4px solid var(--danger-color);
+}
+
+.bearish .trend-indicator {
+  color: var(--danger-color);
+}
+
+/* Neutral Market Styling */
+.neutral {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+  border-left: 4px solid var(--warning-color);
+}
+
+.neutral .trend-indicator {
+  color: var(--warning-color);
+}
+
+/* ==========================================
+   STOCK PRICE STYLING
+   ========================================== */
+
+/* Price Display */
+.price-display {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.price-up {
+  color: var(--success-color);
+}
+
+.price-down {
+  color: var(--danger-color);
+}
+
+.price-neutral {
+  color: var(--text-primary);
+}
+
+/* Price Change Indicators */
+.price-change {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.price-change.positive {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-color);
+}
+
+.price-change.negative {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--danger-color);
+}
+
+/* ==========================================
+   CHARTS AND VISUALIZATIONS
+   ========================================== */
+
+/* Chart Containers */
+.chart-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Chart Toolbar Customization */
+.plotly-graph-div .modebar {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 6px !important;
+}
+
+/* ==========================================
+   NEWS AND CONTENT STYLING
+   ========================================== */
+
+/* News Article Cards */
+.news-article {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.2rem;
+  margin: 0.8rem 0;
+  transition: all var(--transition-normal);
+}
+
+.news-article:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.news-article .headline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.news-article .summary {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.news-article .metadata {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Sentiment Indicators */
+.sentiment-positive {
+  color: var(--success-color);
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.sentiment-negative {
+  color: var(--danger-color);
+  background-color: rgba(244, 67, 54, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.sentiment-neutral {
+  color: var(--text-secondary);
+  background-color: var(--bg-tertiary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   BUTTONS AND INTERACTIVE ELEMENTS
+   ========================================== */
+
+/* Primary Button Styling */
+.stButton > button {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.stButton > button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Secondary Button Styling */
+.stButton.secondary > button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.stButton.secondary > button:hover {
+  background-color: var(--primary-color);
+  color: var(--text-inverse);
+}
+
+/* Voice Control Buttons */
+.voice-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.voice-button:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================
+   LOADING AND ERROR STATES
+   ========================================== */
+
+/* Loading Animations */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Indian Market Loading Context */
+.loading-context {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.loading-context .emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+/* Error Pages */
+.error-page {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 2rem 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1));
+  pointer-events: none;
+}
+
+.error-page .error-emoji {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(10px); }
+}
+
+/* ==========================================
+   ACCESSIBILITY FEATURES
+   ========================================== */
+
+/* High Contrast Mode */
+.high-contrast {
+  --primary-color: #000000;
+  --secondary-color: #FFFFFF;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F0F0F0;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #000000;
+}
+
+/* Large Text Mode */
+.large-text {
+  font-size: 120% !important;
+}
+
+.large-text .stMarkdown {
+  font-size: 1.2em !important;
+}
+
+.large-text .metric-value {
+  font-size: 1.5em !important;
+}
+
+/* Focus Indicators for Keyboard Navigation */
+button:focus,
+input:focus,
+select:focus,
+.stSelectbox:focus-within,
+.stButton:focus-within {
+  outline: 3px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px var(--bg-primary), 0 0 0 5px var(--primary-color) !important;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+   ========================================== */
+
+/* Mobile Adaptations */
+@media (max-width: 768px) {
+  .main-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .main-header .tagline {
+    font-size: 1rem;
+  }
+  
+  .content-card {
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .metric-card {
+    padding: 0.8rem;
+  }
+  
+  .voice-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  /* Stack columns on mobile */
+  .stColumns {
+    flex-direction: column !important;
+  }
+  
+  .stColumn {
+    width: 100% !important;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ==========================================
+   STORY MODE STYLING
+   ========================================== */
+
+/* Story Mode Character Cards */
+.character-card {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.character-card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.character-card .character-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.character-card .character-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Story Progress Indicator */
+.story-progress {
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.story-progress .progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.story-progress .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: width var(--transition-slow);
+}
+
+/* ==========================================
+   INDIAN CULTURAL ELEMENTS
+   ========================================== */
+
+/* Decorative Elements */
+.decorative-border {
+  border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)) 1;
+  border-width: 2px;
+  border-style: solid;
+}
+
+/* Cultural Color Accents */
+.saffron-accent {
+  background: linear-gradient(135deg, #FF9933, #FF6600);
+}
+
+.white-accent {
+  background: linear-gradient(135deg, #FFFFFF, #F8F9FA);
+}
+
+.green-accent {
+  background: linear-gradient(135deg, #138808, #228B22);
+}
+
+/* Traditional Pattern Backgrounds */
+.pattern-bg {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(247, 147, 30, 0.1) 0%, transparent 50%);
+}
+
+/* ==========================================
+   ANIMATIONS AND TRANSITIONS
+   ========================================== */
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeIn var(--transition-slow) ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide In Animation */
+.slide-in {
+  animation: slideIn var(--transition-slow) ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* Pulse Animation for Important Elements */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================================
+   REDUCED MOTION PREFERENCES
+   ========================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .loading-spinner {
+    animation: none;
+  }
+  
+  .bounce, .shake, .pulse {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-success { color: var(--success-color); }
+.text-danger { color: var(--danger-color); }
+.text-warning { color: var(--warning-color); }
+
+/* Spacing Utilities */
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+/* Display Utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+
+/* Flexbox Utilities */
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* Border Utilities */
+.border { border: 1px solid var(--border-color); }
+.border-top { border-top: 1px solid var(--border-color); }
+.border-bottom { border-bottom: 1px solid var(--border-color); }
+.border-left { border-left: 1px solid var(--border-color); }
+.border-right { border-right: 1px solid var(--border-color); }
+
+.rounded { border-radius: 6px; }
+.rounded-lg { border-radius: 12px; }
+.rounded-xl { border-radius: 20px; }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+/* Background Utilities */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-tertiary { background-color: var(--bg-tertiary); }
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+  .stButton,
+  .voice-button,
+  .sidebar,
+  .stSelectbox {
+    display: none !important;
+  }
+  
+  .content-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .main-header {
+    background: none !important;
+    color: #000 !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ==========================================
+   END OF STYLES
+   ========================================== */
