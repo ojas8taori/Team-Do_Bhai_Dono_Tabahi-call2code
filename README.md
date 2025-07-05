@@ -37,6 +37,17 @@ Check the Dependencies[https://github.com/ojas8taori/Team-Do_Bhai_Dono_Tabahi-ca
 
 
 
+https://drive.google.com/file/d/1NPuy8XOWSlbgTuazdt-5Hqn5NAPE9TTB/view?usp=sharing
+
+<img width="959" alt="image" src="https://github.com/user-attachments/assets/af61a13e-76ab-45af-875c-6d4bf7b9d759" />
+<img width="955" alt="image" src="https://github.com/user-attachments/assets/67d497d4-edd3-43dc-a5e1-1915dc63f2b4" />
+<img width="797" alt="image" src="https://github.com/user-attachments/assets/7d18a7df-5b8e-4d15-b292-b45484895c1d" />
+<img width="796" alt="image" src="https://github.com/user-attachments/assets/26ce393e-e217-4eca-8ec8-068a485f53c6" />
+<img width="803" alt="image" src="https://github.com/user-attachments/assets/67743ee8-0f8f-454b-b890-d5b1015bfbda" />
+<img width="799" alt="image" src="https://github.com/user-attachments/assets/6184b148-35d1-4c3b-a7b9-8ab21671f3d5" />
+<img width="805" alt="image" src="https://github.com/user-attachments/assets/e0874814-7a3a-4dee-b57b-77d830aa3c78" />
+<img width="802" alt="image" src="https://github.com/user-attachments/assets/522a295e-b180-4c4d-9b99-2f29356f97ce" />
+
 
 
 
