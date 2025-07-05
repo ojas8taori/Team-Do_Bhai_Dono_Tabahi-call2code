@@ -32,11 +32,11 @@
   --bg-sidebar: linear-gradient(180deg, #f8f9fa, #ffffff);
   
   /* Enhanced Text Colors for better contrast */
-  --text-primary: #2c3e50;           /* Darker blue for better readability */
-  --text-secondary: #5d6d7e;         /* Blue-gray for secondary text */
-  --text-muted: #85929e;             /* Muted blue-gray */
+  --text-primary: #1e3a8a;           /* Dark blue for better readability */
+  --text-secondary: #1e40af;         /* Medium blue for secondary text */
+  --text-muted: #3b82f6;             /* Light blue for muted text */
   --text-inverse: #FFFFFF;
-  --text-accent: #6c5ce7;            /* Purple accent for links */
+  --text-accent: #6366f1;            /* Indigo accent for links */
   
   /* Border Colors */
   --border-color: #DEE2E6;
@@ -368,12 +368,12 @@
   opacity: 1;
 }
 
-/* Enhanced Streamlit metrics */
+/* Enhanced Streamlit metrics with better font sizing */
 .stMetric {
   background: var(--bg-card) !important;
   border: 2px solid var(--border-light) !important;
   border-radius: 15px !important;
-  padding: 1.2rem !important;
+  padding: 0.8rem !important;
   transition: all var(--transition-normal) !important;
   box-shadow: var(--shadow-sm) !important;
 }
@@ -382,6 +382,24 @@
   transform: translateY(-3px) scale(1.02) !important;
   box-shadow: var(--shadow-colored) !important;
   border-color: var(--primary-color) !important;
+}
+
+.stMetric [data-testid="metric-label"] {
+  font-size: 0.75rem !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.stMetric [data-testid="metric-value"] {
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  line-height: 1.2 !important;
+}
+
+.stMetric [data-testid="metric-delta"] {
+  font-size: 0.7rem !important;
+  margin-top: 0.25rem !important;
 }
 
 /* ==========================================

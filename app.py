@@ -49,33 +49,45 @@ def load_css():
             background: transparent !important;
         }
         
-        /* Enhanced text visibility with better contrast */
+        /* Enhanced text visibility with dark blue for better readability */
         .stMarkdown, .stMarkdown p, .stMarkdown div, .stText, .stCaption {
-            color: #ffffff !important;
+            color: #1e3a8a !important;
         }
         
         .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4 {
-            color: #ffffff !important;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #1e40af !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        /* Specific fixes for metric labels and values */
+        /* Specific fixes for metric labels and values with smaller font sizes */
         .stMetric .metric-label, .stMetric label {
-            color: #ffffff !important;
+            color: #1e3a8a !important;
+            font-size: 0.8rem !important;
         }
         
         .stMetric .metric-value, .stMetric [data-testid="metric-value"] {
-            color: #ffffff !important;
+            color: #1e40af !important;
+            font-size: 1.2rem !important;
         }
         
-        /* Fix for all text elements */
+        /* Fix for all text elements with smaller fonts */
         .stMarkdown *, .stText *, .stCaption * {
-            color: #ffffff !important;
+            color: #1e3a8a !important;
+            font-size: 0.9rem !important;
         }
         
         /* Fix for sidebar text */
         .stSidebar .stMarkdown, .stSidebar .stMarkdown p, .stSidebar .stText {
-            color: #ffffff !important;
+            color: #1e3a8a !important;
+        }
+        
+        /* Metric container adjustments for better fit */
+        .stMetric {
+            padding: 0.8rem !important;
+        }
+        
+        .stMetric > div {
+            padding: 0.5rem !important;
         }
         
         /* Form elements with gradient backgrounds */
