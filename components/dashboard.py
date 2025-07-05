@@ -6,13 +6,17 @@ from datetime import datetime, timedelta
 import time
 from utils.data_fetcher import DataFetcher
 from utils.speech_handler import SpeechHandler
+from components.loading_widget import LoadingWidget
+from utils.market_facts import MarketFacts
 
 def render_dashboard():
     """Render the main dashboard"""
     
-    # Initialize data fetcher and speech handler
+    # Initialize components
     data_fetcher = DataFetcher()
     speech_handler = SpeechHandler()
+    loading_widget = LoadingWidget()
+    market_facts = MarketFacts()
     
     # Add accessibility features
     speech_handler.add_accessibility_features()
@@ -36,13 +40,16 @@ def render_dashboard():
     
     # Main dashboard content
     with st.container():
-        # Loading state with Indian market context
-        with st.spinner('📊 Loading market data from NSE & BSE...'):
-            time.sleep(1)  # Simulate loading for better UX
-            
-            # Market overview section
-            st.subheader("📈 Market Overview")
-            render_market_overview_widgets(data_fetcher)
+        # Custom loading with market facts
+        loading_widget.show_loading_with_facts("market_data", duration=2)
+        
+        # Market overview section
+        st.subheader("📈 Market Overview")
+        market_data = render_market_overview_widgets(data_fetcher)
+        
+        # Show market sentiment alert
+        if market_data:
+            loading_widget.show_market_status_with_sentiment(market_data)
             
             st.markdown("---")
             
@@ -133,7 +140,7 @@ def render_market_overview_widgets(data_fetcher):
         if not market_data:
             st.warning("⚠️ Market data temporarily unavailable. Please try again later.")
             render_error_fallback()
-            return
+            return None
         
         # Display indices
         cols = st.columns(len(market_data))
@@ -163,10 +170,13 @@ def render_market_overview_widgets(data_fetcher):
             st.session_state.market_sentiment = 'bearish'
         else:
             st.session_state.market_sentiment = 'neutral'
+        
+        return market_data
             
     except Exception as e:
         st.error(f"Error loading market overview: {str(e)}")
         render_error_fallback()
+        return None
 
 def render_quick_stock_lookup(data_fetcher):
     """Render quick stock lookup widget"""
@@ -480,111 +490,112 @@ def render_stock_comparison(data_fetcher):
         compare_button = st.button("🔄 Compare", key="compare_stocks")
     
     if compare_button and stock1 and stock2 and stock1 != stock2:
-        with st.spinner('Comparing stocks...'):
-            try:
-                # Fetch data for both stocks
-                stock1_data = data_fetcher.get_stock_data(stock1, "5d")
-                stock2_data = data_fetcher.get_stock_data(stock2, "5d")
+        # Show loading with facts for comparison
+        loading_widget = LoadingWidget()
+        loading_widget.show_loading_with_facts("comparison", duration=2)
+        
+        try:
+            # Fetch data for both stocks
+            stock1_data = data_fetcher.get_stock_data(stock1, "5d")
+            stock2_data = data_fetcher.get_stock_data(stock2, "5d")
+            
+            if (stock1_data and 'history' in stock1_data and not stock1_data['history'].empty and
+                stock2_data and 'history' in stock2_data and not stock2_data['history'].empty):
                 
-                if (stock1_data and 'history' in stock1_data and not stock1_data['history'].empty and
-                    stock2_data and 'history' in stock2_data and not stock2_data['history'].empty):
-                    
-                    # Get latest data
-                    latest1 = stock1_data['history'].iloc[-1]
-                    latest2 = stock2_data['history'].iloc[-1]
-                    prev1 = stock1_data['history'].iloc[-2] if len(stock1_data['history']) > 1 else latest1
-                    prev2 = stock2_data['history'].iloc[-2] if len(stock2_data['history']) > 1 else latest2
-                    
-                    # Calculate changes
-                    change1 = latest1['Close'] - prev1['Close']
-                    change_percent1 = (change1 / prev1['Close']) * 100 if prev1['Close'] != 0 else 0
-                    change2 = latest2['Close'] - prev2['Close']
-                    change_percent2 = (change2 / prev2['Close']) * 100 if prev2['Close'] != 0 else 0
-                    
-                    # Display comparison
-                    col1, col2 = st.columns(2)
-                    
-                    with col1:
-                        st.markdown(f"""
-                        <div style='background: linear-gradient(135deg, #e0f2fe, #b3e5fc); 
-                                    padding: 1rem; border-radius: 10px; border: 1px solid #4fc3f7;'>
-                            <h4 style='color: #01579b; margin: 0 0 0.5rem 0; font-size: 1rem;'>
-                                📊 {data_fetcher.indian_symbols.get(stock1, stock1.replace('.NS', ''))}
-                            </h4>
-                            <p style='color: #0277bd; margin: 0; font-size: 0.75rem;'>
-                                Price: ₹{latest1['Close']:.2f} 
-                                <span style='color: {"green" if change1 >= 0 else "red"};'>
-                                    ({change_percent1:+.2f}%)
-                                </span>
-                            </p>
-                            <p style='color: #0288d1; margin: 0; font-size: 0.7rem;'>
-                                Volume: {latest1['Volume']:,}
-                            </p>
-                        </div>
-                        """, unsafe_allow_html=True)
-                    
-                    with col2:
-                        st.markdown(f"""
-                        <div style='background: linear-gradient(135deg, #f3e5f5, #e1bee7); 
-                                    padding: 1rem; border-radius: 10px; border: 1px solid #ce93d8;'>
-                            <h4 style='color: #4a148c; margin: 0 0 0.5rem 0; font-size: 1rem;'>
-                                📊 {data_fetcher.indian_symbols.get(stock2, stock2.replace('.NS', ''))}
-                            </h4>
-                            <p style='color: #6a1b9a; margin: 0; font-size: 0.75rem;'>
-                                Price: ₹{latest2['Close']:.2f} 
-                                <span style='color: {"green" if change2 >= 0 else "red"};'>
-                                    ({change_percent2:+.2f}%)
-                                </span>
-                            </p>
-                            <p style='color: #7b1fa2; margin: 0; font-size: 0.7rem;'>
-                                Volume: {latest2['Volume']:,}
-                            </p>
-                        </div>
-                        """, unsafe_allow_html=True)
-                    
-                    # Comparison insights
-                    st.markdown("#### 🔍 Comparison Insights")
-                    
-                    col1, col2, col3 = st.columns(3)
-                    
-                    with col1:
-                        price_diff = ((latest1['Close'] - latest2['Close']) / latest2['Close']) * 100
-                        better_price = stock1.replace('.NS', '') if latest1['Close'] > latest2['Close'] else stock2.replace('.NS', '')
-                        st.metric("Price Difference", f"{abs(price_diff):.2f}%", 
-                                help=f"{better_price} is higher priced")
-                    
-                    with col2:
-                        better_performer = stock1.replace('.NS', '') if change_percent1 > change_percent2 else stock2.replace('.NS', '')
-                        perf_diff = abs(change_percent1 - change_percent2)
-                        st.metric("Performance Gap", f"{perf_diff:.2f}%", 
-                                help=f"{better_performer} performed better today")
-                    
-                    with col3:
-                        higher_volume = stock1.replace('.NS', '') if latest1['Volume'] > latest2['Volume'] else stock2.replace('.NS', '')
-                        st.metric("Higher Volume", higher_volume, 
-                                help="Stock with higher trading volume")
-                    
-                else:
-                    st.markdown("""
-                    <div style='background: linear-gradient(135deg, #fef2f2, #fee2e2); 
-                                padding: 1.5rem; border-radius: 10px; border: 1px solid #fecaca; text-align: center;'>
-                        <h3 style='color: #dc2626; margin: 0 0 0.5rem 0;'>🙈 Oopsies!</h3>
-                        <p style='color: #991b1b; margin: 0; font-size: 0.9rem;'>
-                            Unable to fetch data for one or both stocks. Please try again later.
+                # Get latest data
+                latest1 = stock1_data['history'].iloc[-1]
+                latest2 = stock2_data['history'].iloc[-1]
+                prev1 = stock1_data['history'].iloc[-2] if len(stock1_data['history']) > 1 else latest1
+                prev2 = stock2_data['history'].iloc[-2] if len(stock2_data['history']) > 1 else latest2
+                
+                # Calculate changes
+                change1 = latest1['Close'] - prev1['Close']
+                change_percent1 = (change1 / prev1['Close']) * 100 if prev1['Close'] != 0 else 0
+                change2 = latest2['Close'] - prev2['Close']
+                change_percent2 = (change2 / prev2['Close']) * 100 if prev2['Close'] != 0 else 0
+                
+                # Display comparison with sentiment-based styling
+                market_facts = MarketFacts()
+                styling1 = market_facts.get_sentiment_based_styling('positive' if change_percent1 >= 0 else 'negative', change_percent1)
+                styling2 = market_facts.get_sentiment_based_styling('positive' if change_percent2 >= 0 else 'negative', change_percent2)
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.markdown(f"""
+                    <div style='background: {styling1["background"]}; 
+                                padding: 1rem; border-radius: 10px; border: 1px solid {styling1["border_color"]};'>
+                        <h4 style='color: {styling1["text_color"]}; margin: 0 0 0.5rem 0; font-size: 1rem;'>
+                            {styling1["emoji"]} {data_fetcher.indian_symbols.get(stock1, stock1.replace('.NS', ''))}
+                        </h4>
+                        <p style='color: {styling1["text_color"]}; margin: 0; font-size: 0.75rem;'>
+                            Price: ₹{latest1['Close']:.2f} ({change_percent1:+.2f}%)
+                        </p>
+                        <p style='color: {styling1["text_color"]}; margin: 0; font-size: 0.7rem;'>
+                            Volume: {latest1['Volume']:,}
                         </p>
                     </div>
                     """, unsafe_allow_html=True)
-                    
-            except Exception as e:
+                
+                with col2:
+                    st.markdown(f"""
+                    <div style='background: {styling2["background"]}; 
+                                padding: 1rem; border-radius: 10px; border: 1px solid {styling2["border_color"]};'>
+                        <h4 style='color: {styling2["text_color"]}; margin: 0 0 0.5rem 0; font-size: 1rem;'>
+                            {styling2["emoji"]} {data_fetcher.indian_symbols.get(stock2, stock2.replace('.NS', ''))}
+                        </h4>
+                        <p style='color: {styling2["text_color"]}; margin: 0; font-size: 0.75rem;'>
+                            Price: ₹{latest2['Close']:.2f} ({change_percent2:+.2f}%)
+                        </p>
+                        <p style='color: {styling2["text_color"]}; margin: 0; font-size: 0.7rem;'>
+                            Volume: {latest2['Volume']:,}
+                        </p>
+                    </div>
+                    """, unsafe_allow_html=True)
+                
+                # Comparison insights
+                st.markdown("#### 🔍 Comparison Insights")
+                
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    price_diff = ((latest1['Close'] - latest2['Close']) / latest2['Close']) * 100
+                    better_price = stock1.replace('.NS', '') if latest1['Close'] > latest2['Close'] else stock2.replace('.NS', '')
+                    st.metric("Price Difference", f"{abs(price_diff):.2f}%", 
+                            help=f"{better_price} is higher priced")
+                
+                with col2:
+                    better_performer = stock1.replace('.NS', '') if change_percent1 > change_percent2 else stock2.replace('.NS', '')
+                    perf_diff = abs(change_percent1 - change_percent2)
+                    st.metric("Performance Gap", f"{perf_diff:.2f}%", 
+                            help=f"{better_performer} performed better today")
+                
+                with col3:
+                    higher_volume = stock1.replace('.NS', '') if latest1['Volume'] > latest2['Volume'] else stock2.replace('.NS', '')
+                    st.metric("Higher Volume", higher_volume, 
+                            help="Stock with higher trading volume")
+            
+            else:
                 st.markdown("""
                 <div style='background: linear-gradient(135deg, #fef2f2, #fee2e2); 
                             padding: 1.5rem; border-radius: 10px; border: 1px solid #fecaca; text-align: center;'>
                     <h3 style='color: #dc2626; margin: 0 0 0.5rem 0;'>🙈 Oopsies!</h3>
                     <p style='color: #991b1b; margin: 0; font-size: 0.9rem;'>
-                        It seems like a 404 error occurred during comparison. Please try again.
+                        Unable to fetch data for one or both stocks. Please try again later.
                     </p>
                 </div>
                 """, unsafe_allow_html=True)
+                
+        except Exception as e:
+            st.markdown("""
+            <div style='background: linear-gradient(135deg, #fef2f2, #fee2e2); 
+                        padding: 1.5rem; border-radius: 10px; border: 1px solid #fecaca; text-align: center;'>
+                <h3 style='color: #dc2626; margin: 0 0 0.5rem 0;'>🙈 Oopsies!</h3>
+                <p style='color: #991b1b; margin: 0; font-size: 0.9rem;'>
+                    It seems like a 404 error occurred during comparison. Please try again.
+                </p>
+            </div>
+            """, unsafe_allow_html=True)
     
     elif compare_button and stock1 == stock2:
         st.warning("Please select two different stocks to compare.")
