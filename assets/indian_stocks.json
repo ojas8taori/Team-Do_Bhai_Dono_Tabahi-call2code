@@ -1,0 +1,287 @@
+{
+  "major_indices": {
+    "NIFTY_50": {
+      "symbol": "^NSEI",
+      "name": "NIFTY 50",
+      "exchange": "NSE",
+      "description": "Flagship index of NSE comprising top 50 companies",
+      "base_year": 1996,
+      "base_value": 1000
+    },
+    "SENSEX": {
+      "symbol": "^BSESN", 
+      "name": "BSE SENSEX",
+      "exchange": "BSE",
+      "description": "Benchmark index of BSE comprising top 30 companies",
+      "base_year": 1979,
+      "base_value": 100
+    },
+    "NIFTY_BANK": {
+      "symbol": "^NSEBANK",
+      "name": "NIFTY Bank",
+      "exchange": "NSE",
+      "description": "Banking sector index",
+      "base_year": 2000,
+      "base_value": 1000
+    },
+    "NIFTY_IT": {
+      "symbol": "^CNXIT",
+      "name": "NIFTY IT",
+      "exchange": "NSE",
+      "description": "Information Technology sector index",
+      "base_year": 2009,
+      "base_value": 200
+    }
+  },
+  "blue_chip_stocks": {
+    "RELIANCE.NS": {
+      "name": "Reliance Industries Limited",
+      "sector": "Energy",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "India's largest private sector enterprise",
+      "listing_date": "1977-11-08",
+      "exchange": ["NSE", "BSE"]
+    },
+    "TCS.NS": {
+      "name": "Tata Consultancy Services",
+      "sector": "Information Technology",
+      "market_cap_category": "Large Cap", 
+      "index_membership": ["NIFTY 50", "SENSEX", "NIFTY IT"],
+      "description": "Leading IT services company",
+      "listing_date": "2004-08-25",
+      "exchange": ["NSE", "BSE"]
+    },
+    "INFY.NS": {
+      "name": "Infosys Limited",
+      "sector": "Information Technology",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX", "NIFTY IT"],
+      "description": "Global leader in consulting and technology services",
+      "listing_date": "1993-02-11",
+      "exchange": ["NSE", "BSE"]
+    },
+    "HDFCBANK.NS": {
+      "name": "HDFC Bank Limited",
+      "sector": "Banking",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX", "NIFTY Bank"],
+      "description": "Leading private sector bank",
+      "listing_date": "1995-04-08",
+      "exchange": ["NSE", "BSE"]
+    },
+    "HINDUNILVR.NS": {
+      "name": "Hindustan Unilever Limited",
+      "sector": "Consumer Goods",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "Leading FMCG company",
+      "listing_date": "1956-01-01",
+      "exchange": ["NSE", "BSE"]
+    },
+    "ITC.NS": {
+      "name": "ITC Limited",
+      "sector": "Consumer Goods",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "Diversified conglomerate",
+      "listing_date": "1970-08-24",
+      "exchange": ["NSE", "BSE"]
+    },
+    "KOTAKBANK.NS": {
+      "name": "Kotak Mahindra Bank Limited",
+      "sector": "Banking",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "NIFTY Bank"],
+      "description": "Leading private sector bank",
+      "listing_date": "1996-03-20",
+      "exchange": ["NSE", "BSE"]
+    },
+    "LT.NS": {
+      "name": "Larsen & Toubro Limited",
+      "sector": "Construction",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "Engineering and construction conglomerate",
+      "listing_date": "1970-05-23",
+      "exchange": ["NSE", "BSE"]
+    },
+    "BHARTIARTL.NS": {
+      "name": "Bharti Airtel Limited",
+      "sector": "Telecommunications",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "Leading telecommunications company",
+      "listing_date": "2002-02-15",
+      "exchange": ["NSE", "BSE"]
+    },
+    "ASIANPAINT.NS": {
+      "name": "Asian Paints Limited",
+      "sector": "Consumer Goods",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX"],
+      "description": "Leading paint company",
+      "listing_date": "1982-05-31",
+      "exchange": ["NSE", "BSE"]
+    },
+    "ICICIBANK.NS": {
+      "name": "ICICI Bank Limited",
+      "sector": "Banking",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "SENSEX", "NIFTY Bank"],
+      "description": "Leading private sector bank",
+      "listing_date": "1998-09-17",
+      "exchange": ["NSE", "BSE"]
+    },
+    "WIPRO.NS": {
+      "name": "Wipro Limited",
+      "sector": "Information Technology",
+      "market_cap_category": "Large Cap",
+      "index_membership": ["NIFTY 50", "NIFTY IT"],
+      "description": "Global IT services company",
+      "listing_date": "1980-11-08",
+      "exchange": ["NSE", "BSE"]
+    }
+  },
+  "sector_wise_stocks": {
+    "Banking": {
+      "HDFCBANK.NS": "HDFC Bank Limited",
+      "ICICIBANK.NS": "ICICI Bank Limited", 
+      "KOTAKBANK.NS": "Kotak Mahindra Bank Limited",
+      "SBIN.NS": "State Bank of India",
+      "AXISBANK.NS": "Axis Bank Limited",
+      "INDUSINDBK.NS": "IndusInd Bank Limited",
+      "BANDHANBNK.NS": "Bandhan Bank Limited",
+      "FEDERALBNK.NS": "Federal Bank Limited"
+    },
+    "Information Technology": {
+      "TCS.NS": "Tata Consultancy Services",
+      "INFY.NS": "Infosys Limited",
+      "WIPRO.NS": "Wipro Limited",
+      "HCLTECH.NS": "HCL Technologies Limited",
+      "TECHM.NS": "Tech Mahindra Limited",
+      "LTI.NS": "Larsen & Toubro Infotech",
+      "MINDTREE.NS": "Mindtree Limited",
+      "COFORGE.NS": "Coforge Limited"
+    },
+    "Auto": {
+      "MARUTI.NS": "Maruti Suzuki India Limited",
+      "TATAMOTORS.NS": "Tata Motors Limited",
+      "M&M.NS": "Mahindra & Mahindra Limited",
+      "BAJAJ-AUTO.NS": "Bajaj Auto Limited",
+      "HEROMOTOCO.NS": "Hero MotoCorp Limited",
+      "EICHERMOT.NS": "Eicher Motors Limited",
+      "TVSMOTORS.NS": "TVS Motor Company Limited",
+      "ASHOKLEY.NS": "Ashok Leyland Limited"
+    },
+    "Pharma": {
+      "SUNPHARMA.NS": "Sun Pharmaceutical Industries",
+      "DRREDDY.NS": "Dr. Reddy's Laboratories",
+      "CIPLA.NS": "Cipla Limited",
+      "AUROPHARMA.NS": "Aurobindo Pharma Limited",
+      "LUPIN.NS": "Lupin Limited",
+      "BIOCON.NS": "Biocon Limited",
+      "CADILAHC.NS": "Cadila Healthcare Limited",
+      "GLENMARK.NS": "Glenmark Pharmaceuticals"
+    },
+    "FMCG": {
+      "HINDUNILVR.NS": "Hindustan Unilever Limited",
+      "ITC.NS": "ITC Limited",
+      "NESTLEIND.NS": "Nestle India Limited",
+      "BRITANNIA.NS": "Britannia Industries Limited",
+      "DABUR.NS": "Dabur India Limited",
+      "MARICO.NS": "Marico Limited",
+      "COLPAL.NS": "Colgate Palmolive India Limited",
+      "GODREJCP.NS": "Godrej Consumer Products"
+    },
+    "Energy": {
+      "RELIANCE.NS": "Reliance Industries Limited",
+      "ONGC.NS": "Oil and Natural Gas Corporation",
+      "NTPC.NS": "NTPC Limited",
+      "POWERGRID.NS": "Power Grid Corporation",
+      "COALINDIA.NS": "Coal India Limited",
+      "IOC.NS": "Indian Oil Corporation",
+      "BPCL.NS": "Bharat Petroleum Corporation",
+      "GAIL.NS": "GAIL India Limited"
+    },
+    "Metals": {
+      "TATASTEEL.NS": "Tata Steel Limited",
+      "JSWSTEEL.NS": "JSW Steel Limited",
+      "HINDALCO.NS": "Hindalco Industries Limited",
+      "SAIL.NS": "Steel Authority of India",
+      "NMDC.NS": "NMDC Limited",
+      "VEDL.NS": "Vedanta Limited",
+      "NATIONALUM.NS": "National Aluminium Company",
+      "JINDALSTEL.NS": "Jindal Steel & Power"
+    }
+  },
+  "market_cap_categories": {
+    "Large Cap": {
+      "description": "Companies ranked 1-100 by market capitalization",
+      "typical_range": "Above ₹20,000 crores",
+      "characteristics": ["High liquidity", "Stable returns", "Lower risk"],
+      "examples": ["RELIANCE.NS", "TCS.NS", "HDFCBANK.NS"]
+    },
+    "Mid Cap": {
+      "description": "Companies ranked 101-250 by market capitalization", 
+      "typical_range": "₹5,000 - ₹20,000 crores",
+      "characteristics": ["Moderate liquidity", "Growth potential", "Medium risk"],
+      "examples": ["GODREJCP.NS", "MPHASIS.NS", "VOLTAS.NS"]
+    },
+    "Small Cap": {
+      "description": "Companies ranked below 250 by market capitalization",
+      "typical_range": "Below ₹5,000 crores",
+      "characteristics": ["Lower liquidity", "High growth potential", "Higher risk"],
+      "examples": ["Various smaller listed companies"]
+    }
+  },
+  "exchanges": {
+    "NSE": {
+      "full_name": "National Stock Exchange of India",
+      "established": 1992,
+      "headquarters": "Mumbai",
+      "trading_hours": {
+        "pre_open": "09:00 - 09:15",
+        "regular": "09:15 - 15:30", 
+        "post_close": "15:40 - 16:00"
+      },
+      "major_indices": ["NIFTY 50", "NIFTY Bank", "NIFTY IT"],
+      "total_listed_companies": "Approx 2000+"
+    },
+    "BSE": {
+      "full_name": "Bombay Stock Exchange",
+      "established": 1875,
+      "headquarters": "Mumbai",
+      "trading_hours": {
+        "pre_open": "09:00 - 09:15",
+        "regular": "09:15 - 15:30",
+        "post_close": "15:40 - 16:00"
+      },
+      "major_indices": ["SENSEX", "BSE 100", "BSE 200"],
+      "total_listed_companies": "Approx 5000+"
+    }
+  },
+  "trading_holidays_2025": [
+    "2025-01-26",
+    "2025-03-14",
+    "2025-03-31",
+    "2025-04-14",
+    "2025-04-18",
+    "2025-05-01",
+    "2025-08-15",
+    "2025-08-16",
+    "2025-10-02",
+    "2025-11-01",
+    "2025-11-15"
+  ],
+  "market_timing": {
+    "timezone": "Asia/Kolkata",
+    "currency": "INR",
+    "settlement_cycle": "T+1",
+    "lot_sizes": {
+      "equity": 1,
+      "futures": "Varies by contract",
+      "options": "Varies by contract"
+    }
+  }
+}

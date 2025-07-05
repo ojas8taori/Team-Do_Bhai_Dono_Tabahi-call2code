@@ -1,0 +1,7 @@
+Separate multi-user collaboration from voice features into its own tab
+
+Moves multi-user collaboration features to a dedicated tab by creating a new `multi_user_collaboration.py` component and updating the main app navigation.
+
+Replit-Commit-Author: Agent
+Replit-Commit-Session-Id: 7637e1d9-4ca0-4949-b646-14475a2f44b5
+Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/77bb72fe-8bf7-45e2-a050-21e315e58678/ebfed936-ae27-4f11-a68d-ca1b825228e4.jpg

@@ -1,0 +1,364 @@
+{
+  "en": {
+    "app_title": "Stonks GPT - Indian Stock Market Platform",
+    "tagline": "Your Gateway to Indian Stock Markets - NSE • BSE • Real-time Analysis",
+    "navigation": {
+      "dashboard": "Dashboard",
+      "stock_analysis": "Stock Analysis", 
+      "market_overview": "Market Overview",
+      "news_feed": "News Feed",
+      "story_mode": "Story Mode"
+    },
+    "dashboard": {
+      "title": "Indian Market Dashboard",
+      "subtitle": "Real-time insights from NSE & BSE",
+      "market_overview": "Market Overview",
+      "quick_stock_lookup": "Quick Stock Lookup",
+      "top_performers": "Top Performers",
+      "sector_performance": "Sector Performance",
+      "news_preview": "Market News Preview",
+      "top_gainers": "Top Gainers",
+      "top_losers": "Top Losers",
+      "market_status": {
+        "open": "Market Open",
+        "closed": "Market Closed",
+        "pre_open": "Pre-Open Session",
+        "post_close": "Post-Close Session"
+      }
+    },
+    "stock_analysis": {
+      "title": "Stock Technical Analysis",
+      "subtitle": "Deep dive into Indian stock fundamentals and technicals",
+      "select_stock": "Select Stock for Analysis",
+      "analysis_period": "Analysis Period",
+      "stock_overview": "Stock Overview",
+      "technical_analysis": "Technical Analysis",
+      "trading_recommendations": "Trading Recommendations",
+      "current_price": "Current Price",
+      "day_high": "Day High",
+      "day_low": "Day Low",
+      "volume": "Volume",
+      "overall_signal": "Overall Signal",
+      "signal_strength": "Signal Strength",
+      "individual_indicators": "Individual Indicators"
+    },
+    "market_overview": {
+      "title": "Indian Market Overview",
+      "subtitle": "Real-time insights from NSE & BSE",
+      "live_status": "Live Market Status",
+      "indices_performance": "Major Indices Performance",
+      "market_breadth": "Market Breadth & Health",
+      "sector_heatmap": "Sector Performance Heatmap",
+      "economic_indicators": "Economic Indicators",
+      "global_impact": "Global Markets Impact"
+    },
+    "news_feed": {
+      "title": "Indian Market News & Analysis",
+      "subtitle": "AI-powered news sentiment analysis for Indian markets",
+      "analysis_dashboard": "News Analysis Dashboard",
+      "detailed_feed": "Detailed News Feed",
+      "total_articles": "Total Articles",
+      "market_sentiment": "Market Sentiment",
+      "market_impact": "Market Impact",
+      "sentiment_score": "Sentiment Score",
+      "category_filter": "Category",
+      "sentiment_filter": "Sentiment",
+      "time_range": "Time Range"
+    },
+    "story_mode": {
+      "title": "Story Mode: Journey Through Indian Markets",
+      "subtitle": "An Interactive Learning Journey",
+      "choose_guide": "Choose Your Guide",
+      "characters": {
+        "raj": {
+          "name": "Raj",
+          "description": "Experienced trader from Mumbai",
+          "specialty": "Technical Analysis"
+        },
+        "priya": {
+          "name": "Priya", 
+          "description": "Financial analyst and educator",
+          "specialty": "Fundamental Analysis"
+        },
+        "arjun": {
+          "name": "Arjun",
+          "description": "Young fintech entrepreneur", 
+          "specialty": "Modern Trading Tech"
+        }
+      }
+    },
+    "voice_features": {
+      "speak_summary": "Speak Summary",
+      "speak_analysis": "Speak Analysis",
+      "speak_news": "Speak News",
+      "voice_navigation": "Voice Navigation",
+      "read_content": "Read Page Content"
+    },
+    "common": {
+      "loading": "Loading",
+      "error": "Error",
+      "retry": "Retry",
+      "refresh": "Refresh",
+      "back": "Back",
+      "next": "Next",
+      "previous": "Previous",
+      "settings": "Settings",
+      "help": "Help",
+      "close": "Close",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "success": "Success",
+      "warning": "Warning",
+      "info": "Information"
+    },
+    "accessibility": {
+      "dark_mode": "Dark Mode",
+      "accessibility_mode": "Accessibility Mode", 
+      "voice_enabled": "Voice Navigation",
+      "high_contrast": "High Contrast",
+      "large_text": "Large Text"
+    },
+    "api_status": {
+      "connected": "Connected",
+      "limited": "Limited",
+      "offline": "Offline",
+      "yahoo_finance": "Yahoo Finance",
+      "finnhub": "Finnhub"
+    }
+  },
+  "hi": {
+    "app_title": "स्टॉन्क्स जीपीटी - भारतीय शेयर बाज़ार प्लेटफॉर्म",
+    "tagline": "भारतीय शेयर बाज़ार का आपका द्वार - NSE • BSE • रियल-टाइम विश्लेषण",
+    "navigation": {
+      "dashboard": "डैशबोर्ड",
+      "stock_analysis": "स्टॉक विश्लेषण",
+      "market_overview": "बाज़ार अवलोकन", 
+      "news_feed": "समाचार फ़ीड",
+      "story_mode": "कहानी मोड"
+    },
+    "dashboard": {
+      "title": "भारतीय बाज़ार डैशबोर्ड",
+      "subtitle": "NSE और BSE से रियल-टाइम जानकारी",
+      "market_overview": "बाज़ार अवलोकन",
+      "quick_stock_lookup": "त्वरित स्टॉक खोज",
+      "top_performers": "शीर्ष प्रदर्शनकर्ता",
+      "sector_performance": "सेक्टर प्रदर्शन",
+      "news_preview": "बाज़ार समाचार पूर्वावलोकन",
+      "top_gainers": "शीर्ष लाभार्थी",
+      "top_losers": "शीर्ष हानिकर्ता",
+      "market_status": {
+        "open": "बाज़ार खुला",
+        "closed": "बाज़ार बंद",
+        "pre_open": "पूर्व-खुला सत्र",
+        "post_close": "पश्च-बंद सत्र"
+      }
+    },
+    "stock_analysis": {
+      "title": "स्टॉक तकनीकी विश्लेषण",
+      "subtitle": "भारतीय स्टॉक के मूलभूत और तकनीकी में गहरी खुदाई",
+      "select_stock": "विश्लेषण के लिए स्टॉक चुनें",
+      "analysis_period": "विश्लेषण अवधि",
+      "stock_overview": "स्टॉक अवलोकन",
+      "technical_analysis": "तकनीकी विश्लेषण",
+      "trading_recommendations": "ट्रेडिंग सिफारिशें",
+      "current_price": "वर्तमान मूल्य",
+      "day_high": "दिन का उच्च",
+      "day_low": "दिन का निम्न",
+      "volume": "वॉल्यूम",
+      "overall_signal": "समग्र संकेत",
+      "signal_strength": "संकेत शक्ति",
+      "individual_indicators": "व्यक्तिगत संकेतक"
+    },
+    "market_overview": {
+      "title": "भारतीय बाज़ार अवलोकन",
+      "subtitle": "NSE और BSE से रियल-टाइम जानकारी",
+      "live_status": "लाइव बाज़ार स्थिति",
+      "indices_performance": "प्रमुख सूचकांक प्रदर्शन",
+      "market_breadth": "बाज़ार व्यापकता और स्वास्थ्य",
+      "sector_heatmap": "सेक्टर प्रदर्शन हीटमैप",
+      "economic_indicators": "आर्थिक संकेतक",
+      "global_impact": "वैश्विक बाज़ारों का प्रभाव"
+    },
+    "news_feed": {
+      "title": "भारतीय बाज़ार समाचार और विश्लेषण",
+      "subtitle": "भारतीय बाज़ारों के लिए AI-संचालित समाचार भावना विश्लेषण",
+      "analysis_dashboard": "समाचार विश्लेषण डैशबोर्ड",
+      "detailed_feed": "विस्तृत समाचार फ़ीड",
+      "total_articles": "कुल लेख",
+      "market_sentiment": "बाज़ार भावना",
+      "market_impact": "बाज़ार प्रभाव",
+      "sentiment_score": "भावना स्कोर",
+      "category_filter": "श्रेणी",
+      "sentiment_filter": "भावना",
+      "time_range": "समय सीमा"
+    },
+    "story_mode": {
+      "title": "कहानी मोड: भारतीय बाज़ारों की यात्रा",
+      "subtitle": "एक इंटरैक्टिव सीखने की यात्रा",
+      "choose_guide": "अपना गाइड चुनें",
+      "characters": {
+        "raj": {
+          "name": "राज",
+          "description": "मुंबई का अनुभवी ट्रेडर",
+          "specialty": "तकनीकी विश्लेषण"
+        },
+        "priya": {
+          "name": "प्रिया",
+          "description": "वित्तीय विश्लेषक और शिक्षक",
+          "specialty": "मूलभूत विश्लेषण"
+        },
+        "arjun": {
+          "name": "अर्जुन", 
+          "description": "युवा फिनटेक उद्यमी",
+          "specialty": "आधुनिक ट्रेडिंग तकनीक"
+        }
+      }
+    },
+    "voice_features": {
+      "speak_summary": "सारांश बोलें",
+      "speak_analysis": "विश्लेषण बोलें",
+      "speak_news": "समाचार बोलें",
+      "voice_navigation": "आवाज़ नेवीगेशन",
+      "read_content": "पेज सामग्री पढ़ें"
+    },
+    "common": {
+      "loading": "लोड हो रहा है",
+      "error": "त्रुटि",
+      "retry": "पुनः प्रयास",
+      "refresh": "रिफ्रेश",
+      "back": "वापस",
+      "next": "अगला",
+      "previous": "पिछला",
+      "settings": "सेटिंग्स",
+      "help": "सहायता",
+      "close": "बंद करें",
+      "save": "सेव करें",
+      "cancel": "रद्द करें",
+      "confirm": "पुष्टि करें",
+      "success": "सफलता",
+      "warning": "चेतावनी",
+      "info": "जानकारी"
+    },
+    "accessibility": {
+      "dark_mode": "डार्क मोड",
+      "accessibility_mode": "सुगम्यता मोड",
+      "voice_enabled": "आवाज़ नेवीगेशन",
+      "high_contrast": "उच्च कंट्रास्ट",
+      "large_text": "बड़ा टेक्स्ट"
+    },
+    "api_status": {
+      "connected": "जुड़ा हुआ",
+      "limited": "सीमित",
+      "offline": "ऑफलाइन",
+      "yahoo_finance": "याहू फाइनेंस",
+      "finnhub": "फिनहब"
+    }
+  },
+  "mr": {
+    "app_title": "स्टॉन्क्स जीपीटी - भारतीय शेअर बाजार प्लॅटफॉर्म",
+    "tagline": "भारतीय शेअर बाजारांचे तुमचे प्रवेशद्वार - NSE • BSE • रिअल-टाइम विश्लेषण",
+    "navigation": {
+      "dashboard": "डॅशबोर्ड",
+      "stock_analysis": "स्टॉक विश्लेषण",
+      "market_overview": "बाजार अवलोकन",
+      "news_feed": "बातम्या फीड",
+      "story_mode": "कथा मोड"
+    },
+    "dashboard": {
+      "title": "भारतीय बाजार डॅशबोर्ड",
+      "subtitle": "NSE आणि BSE कडून रिअल-टाइम माहिती",
+      "market_overview": "बाजार अवलोकन",
+      "quick_stock_lookup": "त्वरित स्टॉक शोध",
+      "top_performers": "अग्रणी कामगिरी करणारे",
+      "sector_performance": "क्षेत्रीय कामगिरी",
+      "news_preview": "बाजार बातम्यांचे पूर्वावलोकन",
+      "top_gainers": "सर्वोच्च लाभार्थी",
+      "top_losers": "सर्वोच्च हानीकर्ते",
+      "market_status": {
+        "open": "बाजार उघडे",
+        "closed": "बाजार बंद",
+        "pre_open": "पूर्व-उघडे सत्र",
+        "post_close": "उत्तर-बंद सत्र"
+      }
+    },
+    "voice_features": {
+      "speak_summary": "सारांश बोला",
+      "speak_analysis": "विश्लेषण बोला",
+      "speak_news": "बातम्या बोला",
+      "voice_navigation": "आवाज नेव्हिगेशन",
+      "read_content": "पान सामग्री वाचा"
+    },
+    "common": {
+      "loading": "लोड होत आहे",
+      "error": "त्रुटी",
+      "retry": "पुन्हा प्रयत्न करा",
+      "refresh": "रिफ्रेश",
+      "back": "मागे",
+      "next": "पुढे",
+      "previous": "मागील",
+      "settings": "सेटिंग्ज",
+      "help": "मदत",
+      "close": "बंद करा",
+      "save": "जतन करा",
+      "cancel": "रद्द करा",
+      "confirm": "पुष्टी करा",
+      "success": "यश",
+      "warning": "चेतावणी",
+      "info": "माहिती"
+    }
+  },
+  "gu": {
+    "app_title": "સ્ટૉન્ક્સ જીપીટી - ભારતીય શેર બજાર પ્લેટફોર્મ",
+    "tagline": "ભારતીય શેર બજારોનું તમારું પ્રવેશદ્વાર - NSE • BSE • રિઅલ-ટાઇમ વિશ્લેષણ",
+    "navigation": {
+      "dashboard": "ડેશબોર્ડ",
+      "stock_analysis": "સ્ટોક વિશ્લેષણ",
+      "market_overview": "બજાર અવલોકન",
+      "news_feed": "ન્યૂઝ ફીડ",
+      "story_mode": "વાર્તા મોડ"
+    },
+    "dashboard": {
+      "title": "ભારતીય બજાર ડેશબોર્ડ",
+      "subtitle": "NSE અને BSE થી રિઅલ-ટાઇમ માહિતી",
+      "market_overview": "બજાર અવલોકન",
+      "quick_stock_lookup": "ઝડપી સ્ટોક શોધ",
+      "top_performers": "ટોચના પરફોર્મર્સ",
+      "sector_performance": "સેક્ટર પરફોર્મન્સ",
+      "news_preview": "બજાર સમાચાર પૂર્વાવલોકન",
+      "top_gainers": "ટોચના લાભાર્થીઓ",
+      "top_losers": "ટોચના હારનારા",
+      "market_status": {
+        "open": "બજાર ખુલ્લું",
+        "closed": "બજાર બંધ",
+        "pre_open": "પ્રી-ઓપન સેશન",
+        "post_close": "પોસ્ટ-ક્લોઝ સેશન"
+      }
+    },
+    "voice_features": {
+      "speak_summary": "સારાંશ બોલો",
+      "speak_analysis": "વિશ્લેષણ બોલો", 
+      "speak_news": "સમાચાર બોલો",
+      "voice_navigation": "અવાજ નેવિગેશન",
+      "read_content": "પેજ સામગ્રી વાંચો"
+    },
+    "common": {
+      "loading": "લોડ થઈ રહ્યું છે",
+      "error": "ભૂલ",
+      "retry": "ફરીથી પ્રયાસ કરો",
+      "refresh": "રિફ્રેશ",
+      "back": "પાછા",
+      "next": "આગળ",
+      "previous": "પહેલાં",
+      "settings": "સેટિંગ્સ",
+      "help": "મદદ",
+      "close": "બંધ કરો",
+      "save": "સેવ કરો",
+      "cancel": "રદ કરો",
+      "confirm": "પુષ્ટિ કરો",
+      "success": "સફળતા",
+      "warning": "ચેતવણી",
+      "info": "માહિતી"
+    }
+  }
+}
