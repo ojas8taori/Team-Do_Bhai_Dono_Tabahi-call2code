@@ -49,14 +49,33 @@ def load_css():
             background: transparent !important;
         }
         
-        /* Enhanced text visibility */
+        /* Enhanced text visibility with better contrast */
         .stMarkdown, .stMarkdown p, .stMarkdown div, .stText, .stCaption {
-            color: #e8e9f3 !important;
+            color: #ffffff !important;
         }
         
         .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4 {
             color: #ffffff !important;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Specific fixes for metric labels and values */
+        .stMetric .metric-label, .stMetric label {
+            color: #ffffff !important;
+        }
+        
+        .stMetric .metric-value, .stMetric [data-testid="metric-value"] {
+            color: #ffffff !important;
+        }
+        
+        /* Fix for all text elements */
+        .stMarkdown *, .stText *, .stCaption * {
+            color: #ffffff !important;
+        }
+        
+        /* Fix for sidebar text */
+        .stSidebar .stMarkdown, .stSidebar .stMarkdown p, .stSidebar .stText {
+            color: #ffffff !important;
         }
         
         /* Form elements with gradient backgrounds */
@@ -219,6 +238,10 @@ def initialize_session_state():
         st.session_state.voice_enabled = False
     if 'story_mode_completed' not in st.session_state:
         st.session_state.story_mode_completed = False
+    if 'skip_story_mode' not in st.session_state:
+        st.session_state.skip_story_mode = False
+    if 'current_page' not in st.session_state:
+        st.session_state.current_page = 'Story Mode'  # Default to Story Mode
     if 'accessibility_mode' not in st.session_state:
         st.session_state.accessibility_mode = False
     if 'market_sentiment' not in st.session_state:
@@ -498,10 +521,27 @@ def main():
     st.title(f"📈 {app_title}")
     st.markdown(f"*{tagline}*")
     
-    # Check if user needs story mode
-    if not st.session_state.story_mode_completed:
-        if st.button("🎭 Start Story Mode Tutorial"):
-            st.session_state.current_page = "story_mode"
+    # Check if user needs story mode (default behavior)
+    if not st.session_state.story_mode_completed and not st.session_state.skip_story_mode:
+        st.info("🎭 Welcome to Stonks GPT! We recommend starting with our interactive Story Mode to learn about Indian stock markets.")
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("🎭 Start Story Mode Tutorial", type="primary"):
+                st.session_state.current_page = "Story Mode"
+                st.rerun()
+        with col2:
+            if st.button("⏭️ Skip to Dashboard"):
+                st.session_state.skip_story_mode = True
+                st.session_state.current_page = "Dashboard"
+                st.rerun()
+    
+    # Set default page based on story mode status
+    if not st.session_state.story_mode_completed and not st.session_state.skip_story_mode:
+        default_page = "Story Mode"
+        default_index = 4  # Story Mode is at index 4
+    else:
+        default_page = st.session_state.get('current_page', 'Dashboard')
+        default_index = 0
     
     # Navigation menu
     selected = option_menu(
@@ -509,7 +549,7 @@ def main():
         options=["Dashboard", "Stock Analysis", "Market Overview", "News Feed", "Story Mode"],
         icons=["speedometer2", "graph-up", "globe", "newspaper", "book"],
         menu_icon="cast",
-        default_index=0,
+        default_index=default_index,
         orientation="horizontal",
         styles={
             "container": {"padding": "0!important", "background-color": "#fafafa"},
@@ -523,6 +563,9 @@ def main():
             "nav-link-selected": {"background-color": "#FF6B35"},
         }
     )
+    
+    # Update current page
+    st.session_state.current_page = selected
     
     # Render sidebar
     render_sidebar()

@@ -165,21 +165,65 @@ def render_quick_stock_lookup(data_fetcher):
     col1, col2 = st.columns([3, 1])
     
     with col1:
-        # Stock symbol input with autocomplete
-        popular_stocks = [
-            'RELIANCE.NS', 'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 
-            'HINDUNILVR.NS', 'ITC.NS', 'KOTAKBANK.NS', 'LT.NS'
-        ]
+        # Get all available Indian stocks for comprehensive lookup
+        all_stocks = list(data_fetcher.indian_symbols.keys())
         
-        selected_stock = st.selectbox(
-            "Select a popular stock:",
-            options=popular_stocks,
-            format_func=lambda x: f"{x.replace('.NS', '')} - {data_fetcher.indian_symbols.get(x, 'Unknown')}",
-            help="Choose from popular Indian stocks"
+        # Add search functionality
+        search_query = st.text_input(
+            "🔍 Search for stocks:",
+            placeholder="Type company name or symbol (e.g., RELIANCE, TCS, INFY)",
+            help="Search from 50+ Indian stocks including NIFTY 50, BSE SENSEX companies and more"
         )
+        
+        # Filter stocks based on search query
+        if search_query:
+            filtered_stocks = []
+            search_lower = search_query.lower()
+            
+            for symbol in all_stocks:
+                company_name = data_fetcher.indian_symbols.get(symbol, '').lower()
+                symbol_clean = symbol.replace('.NS', '').lower()
+                
+                if (search_lower in company_name or 
+                    search_lower in symbol_clean or
+                    symbol_clean.startswith(search_lower)):
+                    filtered_stocks.append(symbol)
+            
+            # Show filtered results
+            if filtered_stocks:
+                selected_stock = st.selectbox(
+                    f"Found {len(filtered_stocks)} matching stocks:",
+                    options=filtered_stocks,
+                    format_func=lambda x: f"{x.replace('.NS', '')} - {data_fetcher.indian_symbols.get(x, 'Unknown')}",
+                    help="Select from the filtered results"
+                )
+            else:
+                st.warning("No stocks found matching your search. Try different keywords.")
+                selected_stock = None
+        else:
+            # Show popular stocks as default
+            popular_stocks = [
+                'RELIANCE.NS', 'TCS.NS', 'INFY.NS', 'HDFCBANK.NS', 
+                'HINDUNILVR.NS', 'ITC.NS', 'KOTAKBANK.NS', 'LT.NS',
+                'SBIN.NS', 'BHARTIARTL.NS', 'ICICIBANK.NS', 'WIPRO.NS'
+            ]
+            
+            selected_stock = st.selectbox(
+                f"Select from popular stocks (or search above from {len(all_stocks)} total stocks):",
+                options=popular_stocks,
+                format_func=lambda x: f"{x.replace('.NS', '')} - {data_fetcher.indian_symbols.get(x, 'Unknown')}",
+                help="Choose from popular Indian stocks or use the search above"
+            )
     
     with col2:
         lookup_button = st.button("📈 Get Quote", key="quick_lookup")
+    
+    # Handle stock selection
+    if search_query and not filtered_stocks:
+        selected_stock = None
+    elif not search_query:
+        # selected_stock is already set from the popular stocks selectbox
+        pass
     
     if lookup_button and selected_stock:
         with st.spinner(f'Getting latest data for {selected_stock}...'):
