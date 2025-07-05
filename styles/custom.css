@@ -319,6 +319,34 @@ div[style*="color"] {
   color: white !important;
 }
 
+/* Dropdown and Select styling for dark mode */
+[data-theme="dark"] .stSelectbox div,
+[data-theme="dark"] .stSelectbox span,
+[data-theme="dark"] .stSelectbox label,
+[data-theme="dark"] .stSelectbox input {
+  color: white !important;
+  background-color: #2d3748 !important;
+}
+
+[data-theme="dark"] .stSelectbox div[data-baseweb="select"] {
+  color: white !important;
+  background-color: #2d3748 !important;
+}
+
+[data-theme="dark"] .stSelectbox div[data-baseweb="select"] > div {
+  color: white !important;
+  background-color: #2d3748 !important;
+}
+
+/* Force white text in all input elements */
+[data-theme="dark"] input {
+  color: white !important;
+}
+
+[data-theme="dark"] select {
+  color: white !important;
+}
+
 /* ==========================================
    HEADER AND NAVIGATION
    ========================================== */

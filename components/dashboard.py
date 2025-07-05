@@ -21,10 +21,13 @@ def render_dashboard():
     with st.container():
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            st.markdown("""
+            text_color = "white" if st.session_state.get('dark_mode', False) else "#333"
+            subtitle_color = "white" if st.session_state.get('dark_mode', False) else "#666"
+            
+            st.markdown(f"""
             <div style='text-align: center; padding: 20px;'>
-                <h1>🇮🇳 Indian Market Dashboard</h1>
-                <p style='color: #666; font-size: 18px;'>Real-time insights from NSE & BSE</p>
+                <h1 style='color: {text_color}; font-size: 1.8rem;'>🇮🇳 Indian Market Dashboard</h1>
+                <p style='color: {subtitle_color}; font-size: 14px;'>Real-time insights from NSE & BSE</p>
             </div>
             """, unsafe_allow_html=True)
     
@@ -373,14 +376,18 @@ def render_news_preview(data_fetcher):
         if news:
             for item in news[:3]:  # Show top 3 news items
                 with st.container():
+                    text_color = "white" if st.session_state.get('dark_mode', False) else "#333"
+                    text_color_light = "white" if st.session_state.get('dark_mode', False) else "#666"
+                    text_color_muted = "white" if st.session_state.get('dark_mode', False) else "#999"
+                    
                     st.markdown(f"""
                     <div style='padding: 15px; margin: 10px 0; border-radius: 10px; 
                                 background-color: rgba(0,0,0,0.02); border-left: 4px solid #FF6B35;'>
-                        <h4 style='margin: 0 0 10px 0; color: #333;'>{item.get('headline', 'News Headline')}</h4>
-                        <p style='margin: 0; color: #666; font-size: 14px;'>
+                        <h4 style='margin: 0 0 10px 0; color: {text_color};'>{item.get('headline', 'News Headline')}</h4>
+                        <p style='margin: 0; color: {text_color_light}; font-size: 14px;'>
                             {item.get('summary', 'News summary unavailable')[:200]}...
                         </p>
-                        <p style='margin: 10px 0 0 0; font-size: 12px; color: #999;'>
+                        <p style='margin: 10px 0 0 0; font-size: 12px; color: {text_color_muted};'>
                             Source: {item.get('source', 'Unknown')} | 
                             {datetime.fromtimestamp(item.get('datetime', 0)).strftime('%Y-%m-%d %H:%M') if item.get('datetime') else 'Time unknown'}
                         </p>
